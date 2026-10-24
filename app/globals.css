@@ -265,6 +265,24 @@ button:focus-visible, a:focus-visible, input:focus-visible + span { outline: 2px
 .hud-security i { color: #436759; font-style: normal; }
 .hud-layout { display: grid; grid-template-columns: minmax(240px, .81fr) minmax(360px, 1.55fr) minmax(275px, .9fr); align-items: start; gap: 13px; }
 .hud-panel { border: 1px solid rgba(0,240,255,.17); background: linear-gradient(145deg, rgba(9,18,25,.94), rgba(3,7,11,.91)); box-shadow: 0 10px 35px rgba(0,0,0,.2); min-width: 0; }
+.visualizer-panel { border-radius: 18px; border-color: rgba(0,240,255,.28); background: linear-gradient(135deg, rgba(8,24,31,.96), rgba(3,9,15,.95) 58%, rgba(4,22,20,.93)); box-shadow: 0 18px 55px rgba(0,0,0,.42), inset 0 1px rgba(255,255,255,.05), 0 0 32px rgba(0,240,255,.035); }
+.visualizer-panel .panel-heading { min-height: 68px; padding: 16px 19px; border-bottom-color: rgba(0,240,255,.2); background: linear-gradient(90deg, rgba(0,240,255,.07), transparent 52%, rgba(0,255,136,.045)); }
+.visualizer-panel .panel-heading h2 { font-size: 14px; letter-spacing: .08em; }
+.visualizer-panel .panel-kicker { color: #7daebd; font-size: 8px; }
+.visualizer-panel .live-state { padding: 7px 10px; border: 1px solid rgba(0,255,136,.23); border-radius: 999px; background: rgba(0,255,136,.06); font-size: 8px; letter-spacing: .04em; }
+.visualizer-panel .hud-3d { margin: 14px; border: 1px solid rgba(0,240,255,.15); border-radius: 14px; height: clamp(280px, 34vh, 365px); background: radial-gradient(circle at 50% 48%, rgba(0,255,136,.13), transparent 25%), radial-gradient(circle at 50% 50%, rgba(0,240,255,.09), transparent 58%), #020b10; box-shadow: inset 0 0 50px rgba(0,240,255,.09), 0 10px 28px rgba(0,0,0,.32); }
+.visualizer-panel .hud-3d::before { width: min(36vw, 285px); height: min(14vw, 112px); border-color: rgba(0,255,136,.34); }
+.visualizer-panel .hud-3d::after { width: min(49vw, 390px); height: min(19vw, 155px); border-color: rgba(0,240,255,.23); }
+.visualizer-panel .hud-model-hud { top: 22px; padding: 9px 11px; border-left: 2px solid rgba(0,240,255,.55); background: linear-gradient(90deg, rgba(0,240,255,.08), transparent); font-size: 8px; }
+.visualizer-panel .hud-model-hud--left { left: 19px; }
+.visualizer-panel .hud-model-hud--right { right: 19px; border-left: 0; border-right: 2px solid rgba(0,255,136,.55); background: linear-gradient(-90deg, rgba(0,255,136,.08), transparent); }
+.visualizer-panel .hud-model-hud strong { font-size: 16px; }
+.visualizer-panel .hud-model-footer { left: 23px; bottom: 18px; padding: 6px 9px; border-radius: 5px; background: rgba(0,0,0,.36); font-size: 8px; }
+.visualizer-panel .waveform-scope { margin: 0 14px 14px; padding: 12px 13px 10px; border: 1px solid rgba(0,240,255,.13); border-radius: 10px; background: rgba(0,0,0,.23); }
+.visualizer-panel .waveform-label { color: #77a6b3; font-size: 8px; }
+.visualizer-panel .waveform-bars { height: 53px; margin-top: 7px; gap: 4px; }
+.visualizer-panel .waveform-bars i { border-radius: 3px 3px 0 0; box-shadow: 0 0 8px rgba(0,240,255,.3); }
+.visualizer-panel .biometric-strip { margin: 0 14px 14px; overflow: hidden; border: 1px solid rgba(0,240,255,.12); border-radius: 10px; }
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 15px 13px; border-bottom: 1px solid rgba(0,240,255,.14); }
 .panel-heading h2 { display: flex; align-items: center; gap: 8px; margin: 5px 0 0; font: 500 11px var(--font-jetbrains), monospace; letter-spacing: .03em; color: #e9f7fc; }
 .panel-heading h2 svg { color: var(--cyan); }

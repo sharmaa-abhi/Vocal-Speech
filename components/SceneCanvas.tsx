@@ -121,6 +121,14 @@ function NeuralModel({ stage, energy, emotion, compact, pointerX = 0, pointerY =
         <meshBasicMaterial color="#00FF88" wireframe transparent opacity={0.72} />
       </mesh>
       <group ref={haloRef}>
+        <mesh>
+          <icosahedronGeometry args={[1.02, 2]} />
+          <meshBasicMaterial color="#063b45" wireframe transparent opacity={0.22} />
+        </mesh>
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <torusGeometry args={[1.08, 0.012, 8, 96]} />
+          <meshBasicMaterial color="#00FF88" transparent opacity={0.7} />
+        </mesh>
         <mesh rotation={[Math.PI / 2.8, 0.5, 0]}>
           <torusGeometry args={[1.95, 0.006, 6, 160]} />
           <meshBasicMaterial color="#00F0FF" transparent opacity={0.42} />
@@ -132,6 +140,14 @@ function NeuralModel({ stage, energy, emotion, compact, pointerX = 0, pointerY =
         <mesh rotation={[0.2, 0.1, Math.PI / 2]}>
           <torusGeometry args={[1.68, 0.004, 6, 144]} />
           <meshBasicMaterial color="#3B82F6" transparent opacity={0.34} />
+        </mesh>
+        <mesh position={[1.55, 0.16, 0]}>
+          <sphereGeometry args={[0.055, 12, 12]} />
+          <meshBasicMaterial color="#00FF88" />
+        </mesh>
+        <mesh position={[-1.25, -0.65, 0.35]}>
+          <sphereGeometry args={[0.04, 12, 12]} />
+          <meshBasicMaterial color="#00F0FF" />
         </mesh>
       </group>
     </group>

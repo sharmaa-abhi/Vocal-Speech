@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  --font-orbitron: "Arial Narrow", Arial, sans-serif;
+  --font-inter: Arial, sans-serif;
+  --font-jetbrains: "Courier New", monospace;
   --void: #000000;
   --obsidian: #020408;
   --ice: #f8fafc;

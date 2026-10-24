@@ -141,7 +141,7 @@ function NeuralModel({ stage, energy, emotion, compact, pointerX = 0, pointerY =
 export default function SceneCanvas({ stage, energy, emotion, compact = false, pointerX = 0, pointerY = 0 }: SceneCanvasProps) {
   return (
     <div className={`scene-canvas ${compact ? "scene-canvas--compact" : ""}`} aria-hidden="true">
-      <Canvas dpr={[1, 1.6]} camera={{ position: [0, 0, 7.4], fov: 43 }} gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}>
+      <Canvas dpr={[1, 1.6]} camera={{ position: [0, 0, 7.4], fov: 43 }} gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: "high-performance" }}>
         <color attach="background" args={["#000000"]} />
         <fog attach="fog" args={["#020408", 8, 18]} />
         <ambientLight intensity={0.2} />

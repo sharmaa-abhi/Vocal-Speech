@@ -48,8 +48,8 @@ export default function DashboardPage() {
       <div className="hud-backdrop" aria-hidden="true"><div className="hud-grid" /><div className="hud-glow" /></div>
       <div className="hud-topbar">
         <Link className="brand-mark" href="/"><span className="brand-icon"><Activity size={18} /></span><span>VOCAL<span className="brand-soft">/FORENSICS</span><small>CYBERCRIME DISPATCH SYSTEM</small></span></Link>
-        <div className="hud-breadcrumb"><span>02 //</span> LIVE OFFICER TACTICAL HUD</div>
-        <div className="hud-top-actions"><span className="hud-clock"><span className="status-dot status-dot--live" /> {clock}</span><Link className="nav-switch" href="/"><span>01 //</span> 3D STORYTELLING <ArrowLeft size={14} /></Link></div>
+        <div className="hud-breadcrumb"><span>02 {"//"}</span> LIVE OFFICER TACTICAL HUD</div>
+        <div className="hud-top-actions"><span className="hud-clock"><span className="status-dot status-dot--live" /> {clock}</span><Link className="nav-switch" href="/"><span>01 {"//"}</span> 3D STORYTELLING <ArrowLeft size={14} /></Link></div>
       </div>
 
       <section className="hud-titlebar"><div><div className="section-index green-index">DISPATCH / TRIAGE OPERATIONS</div><h1>VOICE SIGNAL <em>COMMAND.</em></h1><p>Local audio telemetry and illustrative priority queue for human-led cybercrime response.</p></div><div className="hud-security"><ShieldCheck size={16} /><span>LOCAL PROCESSING</span><i>·</i><span>HUMAN REVIEW REQUIRED</span></div></section>

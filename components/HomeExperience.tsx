@@ -102,7 +102,7 @@ export default function HomeExperience() {
       <nav className="top-nav" aria-label="Primary navigation">
         <Link className="brand-mark" href="/" aria-label="Vocal Forensics home"><span className="brand-icon"><Activity size={18} /></span><span>VOCAL<span className="brand-soft">/FORENSICS</span><small>CYBERSECURITY RESEARCH INTERFACE</small></span></Link>
         <div className="nav-state"><span className="status-dot" /> FRONTEND-ONLY PROTOTYPE</div>
-        <Link className="nav-switch" href="/dashboard"><span>02 //</span> OFFICER HUD <ArrowRight size={14} /></Link>
+        <Link className="nav-switch" href="/dashboard"><span>02 {"//"}</span> OFFICER HUD <ArrowRight size={14} /></Link>
       </nav>
 
       <div className="story-progress" aria-hidden="true"><span style={{ height: `${Math.min(100, (stage / 4) * 100)}%` }} /></div>
@@ -111,8 +111,12 @@ export default function HomeExperience() {
       <div id="story-track" className="story-track">
         <section className="story-section hero-section" id="mission" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <motion.div className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}><span className="pulse-dot" /> NATIONAL CYBERSECURITY VOCAL FORENSICS <span className="eyebrow-divider">//</span> REAL-TIME SER ENGINE</motion.div>
-            <h1 id="hero-title" className="hero-title"><span className="title-white cipher-word">REAL-TIME SPEECH</span><span className="title-blue cipher-word">EMOTION ANALYSIS</span><span className="title-white title-sm cipher-word">FOR CYBERCRIME INVESTIGATION</span></h1>
+            <motion.div className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}><span className="pulse-dot" /> NATIONAL CYBERSECURITY VOCAL FORENSICS <span className="eyebrow-divider">{"//"}</span> REAL-TIME SER ENGINE</motion.div>
+            <h1 id="hero-title" className="hero-title">
+              <span className="title-white cipher-word">REAL-TIME SPEECH</span>
+              <span className="title-blue cipher-word">EMOTION ANALYSIS</span>
+              <span className="title-white title-sm cipher-word">FOR CYBERCRIME INVESTIGATION</span>
+            </h1>
             <p className="hero-subtitle">When milliseconds matter, <span>listen beyond words.</span> Analyze live or recorded voice signals to help officers identify potential distress and prioritize critical cybercrime calls.</p>
             <div className="hero-actions"><button className="text-action" onClick={activateSandbox} type="button">TEST THE LIVE VOICE ENGINE <ArrowRight size={17} /></button><span className="action-separator">OR</span><a className="quiet-link" href="#problem">EXPLORE THE PIPELINE <ArrowDown size={14} /></a></div>
             <div className="hero-footline"><span><Waves size={15} /> ACOUSTIC SIGNALS, NOT JUST WORDS</span><span className="green-text">● PRIVACY-FIRST · LOCAL PROCESSING</span></div>
@@ -125,7 +129,7 @@ export default function HomeExperience() {
         <section className="story-section problem-section" id="problem" aria-labelledby="problem-title">
           <CalloutLines />
           <div className="section-copy section-copy--left">
-            <div className="section-index">01 <span>//</span> THE PROBLEM STATEMENT</div>
+            <div className="section-index">01 <span>{"//"}</span> THE PROBLEM STATEMENT</div>
             <h2 id="problem-title"><span className="cipher-word">WHEN EVERY CALL</span><br /><em className="cipher-word">CARRIES A SIGNAL.</em></h2>
             <p>Cybercrime response teams may hear from <strong>distressed victims, suspected fraudsters, and informants</strong> under intense pressure. While officers juggle multiple cases, subtle changes in vocal energy, pitch, and stability can be difficult to assess consistently.</p>
             <p className="muted-paragraph">The challenge is not to judge a caller. It is to surface signals that may deserve a closer, faster human review.</p>
@@ -138,7 +142,7 @@ export default function HomeExperience() {
         <section className="story-section solution-section" id="pipeline" aria-labelledby="pipeline-title">
           <CalloutLines variant="reverse" />
           <div className="section-copy section-copy--right">
-            <div className="section-index green-index">02 <span>//</span> THE 4-STAGE SER PIPELINE</div>
+            <div className="section-index green-index">02 <span>{"//"}</span> THE 4-STAGE SER PIPELINE</div>
             <h2 id="pipeline-title"><span className="cipher-word">WE FORMAT THE VOICE.</span><br /><em className="cipher-word">THEN READ THE SIGNAL.</em></h2>
             <p className="pipeline-intro">A client-side acoustic pipeline surfaces voice features for review—not a black-box verdict.</p>
             <div className="pipeline-list">
@@ -155,7 +159,7 @@ export default function HomeExperience() {
 
         <section className="story-section emotion-section" id="emotions" aria-labelledby="emotions-title">
           <div className="emotion-heading">
-            <div className="section-index">03 <span>//</span> VOCAL EMOTION SIGNALS</div>
+            <div className="section-index">03 <span>{"//"}</span> VOCAL EMOTION SIGNALS</div>
             <h2 id="emotions-title"><span className="cipher-word">FOUR SIGNALS.</span> <em>ONE HUMAN REVIEW.</em></h2>
             <p>Select a signal to change the 3D core, motion intensity, and illustrative acoustic readout.</p>
           </div>
@@ -180,10 +184,10 @@ export default function HomeExperience() {
 
         <section className="story-section objective-section" id="objective" aria-labelledby="objective-title">
           <div className="section-copy objective-copy">
-            <div className="section-index green-index">04 <span>//</span> OBJECTIVE & RESPONSIBLE AI</div>
+            <div className="section-index green-index">04 <span>{"//"}</span> OBJECTIVE & RESPONSIBLE AI</div>
             <h2 id="objective-title"><span className="cipher-word">PRIORITIZE CRITICAL CALLS.</span><br /><em className="green-headline">NEVER AUTOMATE GUILT.</em></h2>
-            <p>Give officers a real-time signal view to support faster triage while respecting <strong>privacy, security, and human judgement</strong>. The demo's microphone and file analysis stay inside this browser tab.</p>
-            <div className="ethics-statement"><ShieldCheck size={19} /><p><strong>INDICATIVE SIGNAL ONLY.</strong> Emotion predictions are not definitive evidence of a person’s intentions, honesty, or guilt. Scores must never be used as the sole basis for enforcement decisions.</p></div>
+            <p>Give officers a real-time signal view to support faster triage while respecting <strong>privacy, security, and human judgement</strong>. The demo&apos;s microphone and file analysis stay inside this browser tab.</p>
+            <div className="ethics-statement"><ShieldCheck size={19} /><p><strong>INDICATIVE SIGNAL ONLY.</strong> Emotion predictions are not definitive evidence of a person&apos;s intentions, honesty, or guilt. Scores must never be used as the sole basis for enforcement decisions.</p></div>
           </div>
           <div className="sandbox-content" id="sandbox">
             <div className="sandbox-heading"><span><Radio size={15} /> LIVE VOICE SANDBOX</span><strong>LOCAL AUDIO / NO SERVER</strong></div>

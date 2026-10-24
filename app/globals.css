@@ -302,7 +302,10 @@ button:focus-visible, a:focus-visible, input:focus-visible + span { outline: 2px
 .visualizer-panel { position: relative; overflow: hidden; }
 .live-state { display: flex; align-items: center; gap: 6px; color: var(--green); font-size: 7px; white-space: nowrap; }
 .live-state i, .transcript-live .status-dot { width: 5px; height: 5px; display: inline-block; border-radius: 50%; background: var(--green); box-shadow: 0 0 8px var(--green); }
-.hud-3d { position: relative; height: clamp(260px, 32vh, 345px); overflow: hidden; background: radial-gradient(ellipse at center, rgba(0,240,255,.06), transparent 57%); }
+.hud-3d { position: relative; height: clamp(260px, 32vh, 345px); overflow: hidden; isolation: isolate; background: radial-gradient(circle at 50% 48%, rgba(0,240,255,.12), transparent 39%), radial-gradient(ellipse at center, rgba(0,240,255,.06), transparent 57%); }
+.hud-3d::before, .hud-3d::after { content: ""; position: absolute; z-index: 1; pointer-events: none; border: 1px solid rgba(0,240,255,.18); border-radius: 50%; transform: translate(-50%, -50%) rotateX(68deg); left: 50%; top: 50%; }
+.hud-3d::before { width: min(38vw, 310px); height: min(15vw, 125px); box-shadow: 0 0 24px rgba(0,240,255,.1), inset 0 0 18px rgba(0,240,255,.08); animation: hud-orbit 8s linear infinite; }
+.hud-3d::after { width: min(52vw, 430px); height: min(21vw, 175px); border-color: rgba(0,255,136,.12); transform: translate(-50%, -50%) rotateX(68deg) rotateZ(38deg); animation: hud-orbit-reverse 13s linear infinite; }
 .hud-model-hud { position: absolute; z-index: 2; top: 20px; display: flex; flex-direction: column; gap: 6px; color: #688997; font-size: 7px; letter-spacing: .08em; text-shadow: 0 2px 6px #000; }
 .hud-model-hud strong { color: var(--cyan); font-size: 14px; font-weight: 500; }
 .hud-model-hud strong small { font-size: 9px; }
@@ -386,6 +389,8 @@ button:focus-visible, a:focus-visible, input:focus-visible + span { outline: 2px
 @keyframes node-pulse { 0%, 100% { opacity: .65; r: 3px; } 50% { opacity: 1; r: 5px; } }
 @keyframes orbit-spin { from { transform: translate(-50%,-50%) rotate(0deg); } to { transform: translate(-50%,-50%) rotate(360deg); } }
 @keyframes record-glow { 0%, 100% { box-shadow: 0 0 0 rgba(255,75,110,0); } 50% { box-shadow: 0 0 18px rgba(255,75,110,.22); } }
+@keyframes hud-orbit { from { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(0deg); } to { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(360deg); } }
+@keyframes hud-orbit-reverse { from { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(38deg); } to { transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-322deg); } }
 
 @media (min-width: 1600px) {
   .hero-copy { max-width: 900px; }

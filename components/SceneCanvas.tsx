@@ -21,7 +21,7 @@ function makeSphereSamples(count: number) {
   return list;
 }
 
-function NeuralModel({ stage, energy, emotion, pointerX = 0, pointerY = 0 }: { stage: number; energy: number; emotion: number; pointerX?: number; pointerY?: number }) {
+function NeuralModel({ stage, energy, emotion, compact, pointerX = 0, pointerY = 0 }: { stage: number; energy: number; emotion: number; compact?: boolean; pointerX?: number; pointerY?: number }) {
   const particleRef = useRef<THREE.Points>(null!);
   const coreRef = useRef<THREE.Mesh>(null!);
   const haloRef = useRef<THREE.Group>(null!);
@@ -76,7 +76,9 @@ function NeuralModel({ stage, energy, emotion, pointerX = 0, pointerY = 0 }: { s
     // Camera choreography is scroll-linked: push into the spectral tunnel, then ease back for triage.
     const cameraTargetZ = tStage > 1.55 && tStage < 2.7 ? 4.65 : tStage > 3.35 ? 6.7 : 7.4;
     state.camera.position.z = THREE.MathUtils.damp(state.camera.position.z, cameraTargetZ, 1.1, delta);
-    state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, tStage > 1.6 && tStage < 2.7 ? 0.18 : 0, 1.0, delta);
+    const cameraSway = compact ? Math.sin(time * 0.55) * 0.18 : 0;
+    state.camera.position.x = THREE.MathUtils.damp(state.camera.position.x, (tStage > 1.6 && tStage < 2.7 ? 0.18 : 0) + cameraSway, 1.0, delta);
+    state.camera.position.y = THREE.MathUtils.damp(state.camera.position.y, compact ? Math.cos(time * 0.42) * 0.1 : 0, 1.0, delta);
     state.camera.lookAt(0, 0, 0);
     const stageA = Math.floor(tStage);
     const stageB = Math.min(4, stageA + 1);
@@ -105,6 +107,7 @@ function NeuralModel({ stage, energy, emotion, pointerX = 0, pointerY = 0 }: { s
     if (haloRef.current) {
       haloRef.current.rotation.z += delta * (0.025 + emotion * 0.05);
       haloRef.current.rotation.x = Math.sin(time * 0.2) * 0.12;
+      haloRef.current.position.y = compact ? Math.sin(time * 0.8) * 0.1 : 0;
     }
   });
 
@@ -144,8 +147,8 @@ export default function SceneCanvas({ stage, energy, emotion, compact = false, p
         <ambientLight intensity={0.2} />
         <pointLight position={[3, 3, 5]} color="#00F0FF" intensity={1.2} distance={14} />
         <pointLight position={[-3, -2, -2]} color="#00FF88" intensity={0.8} distance={12} />
-        <NeuralModel stage={stage} energy={energy} emotion={emotion} pointerX={pointerX} pointerY={pointerY} />
-        <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 3} maxPolarAngle={(Math.PI * 2) / 3} rotateSpeed={0.28} autoRotate autoRotateSpeed={0.12} />
+        <NeuralModel stage={stage} energy={energy} emotion={emotion} compact={compact} pointerX={pointerX} pointerY={pointerY} />
+        <OrbitControls enablePan={false} enableZoom={false} minPolarAngle={Math.PI / 3} maxPolarAngle={(Math.PI * 2) / 3} rotateSpeed={0.28} autoRotate autoRotateSpeed={compact ? 0.3 : 0.12} />
         <EffectComposer multisampling={0}>
           <Bloom intensity={1.05} luminanceThreshold={0.12} luminanceSmoothing={0.15} mipmapBlur />
         </EffectComposer>

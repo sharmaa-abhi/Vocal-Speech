@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import dynamic from "next/dynamic";
 import AudioSandbox from "@/components/AudioSandbox";
 import CalloutLines from "@/components/CalloutLines";
+import GlobalNav from "@/components/navigation/GlobalNav";
 
 const SceneCanvas = dynamic(() => import("@/components/SceneCanvas"), { ssr: false });
 import { clamp, EMOTION_LABELS, INITIAL_METRICS, type AcousticMetrics, type EmotionKey } from "@/lib/types";
@@ -101,11 +102,7 @@ export default function HomeExperience() {
       <div className="edge-vignette" aria-hidden="true" />
       <SceneCanvas stage={stage} energy={visualEnergy} emotion={activeEmotionIntensity} pointerX={pointer.x} pointerY={pointer.y} />
 
-      <nav className="top-nav" aria-label="Primary navigation">
-        <Link className="brand-mark" href="/" aria-label="Vocal Forensics home"><span className="brand-icon"><Activity size={18} /></span><span>VOCAL<span className="brand-soft">/FORENSICS</span><small>CYBERSECURITY RESEARCH INTERFACE</small></span></Link>
-        <div className="nav-state"><span className="status-dot" /> FRONTEND-ONLY PROTOTYPE</div>
-        <Link className="nav-switch" href="/dashboard"><span>02 {"//"}</span> OFFICER HUD <ArrowRight size={14} /></Link>
-      </nav>
+      <GlobalNav />
 
       <div className="story-progress" aria-hidden="true"><span style={{ height: `${Math.min(100, (stage / 4) * 100)}%` }} /></div>
       <div className="scene-counter"><span>SCENE</span><strong>0{Math.min(5, Math.floor(stage) + 1)}</strong><i>/ 05</i></div>
@@ -120,7 +117,10 @@ export default function HomeExperience() {
               <span className="title-white title-sm cipher-word">FOR CYBERCRIME INVESTIGATION</span>
             </h1>
             <p className="hero-subtitle">When milliseconds matter, <span>listen beyond words.</span> Analyze live or recorded voice signals to help officers identify potential distress and prioritize critical cybercrime calls.</p>
-            <div className="hero-actions"><button className="text-action" onClick={activateSandbox} type="button">TEST THE LIVE VOICE ENGINE <ArrowRight size={17} /></button><span className="action-separator">OR</span><a className="quiet-link" href="#problem">EXPLORE THE PIPELINE <ArrowDown size={14} /></a></div>
+            <div className="hero-actions">
+              <Link className="text-action" href="/pipeline/audio-ingestion">EXPLORE 4-STAGE 3D PIPELINE <ArrowRight size={17} /></Link>
+              <button className="quiet-link" onClick={activateSandbox} type="button">LIVE VOICE SANDBOX <ArrowDown size={14} /></button>
+            </div>
             <div className="hero-footline"><span><Waves size={15} /> ACOUSTIC SIGNALS, NOT JUST WORDS</span><span className="green-text">● PRIVACY-FIRST · LOCAL PROCESSING</span></div>
           </div>
           <div className="hero-side-telemetry" aria-hidden="true"><span>NEURAL SIGNAL / 001</span><strong>48.7 <small>kHz*</small></strong><i>3D ACOUSTIC FIELD</i><div className="telemetry-bars">{Array.from({ length: 22 }, (_, i) => <b key={i} style={{ height: `${8 + ((i * 19 + 7) % 38)}px`, animationDelay: `${i * -0.08}s` }} />)}</div><small>* VISUAL REFERENCE ONLY</small></div>
@@ -146,14 +146,14 @@ export default function HomeExperience() {
           <div className="section-copy section-copy--right">
             <div className="section-index green-index">02 <span>{"//"}</span> THE 4-STAGE SER PIPELINE</div>
             <h2 id="pipeline-title"><span className="cipher-word">WE FORMAT THE VOICE.</span><br /><em className="cipher-word">THEN READ THE SIGNAL.</em></h2>
-            <p className="pipeline-intro">A client-side acoustic pipeline surfaces voice features for review—not a black-box verdict.</p>
+            <p className="pipeline-intro">A client-side acoustic pipeline surfaces voice features for review—not a black-box verdict. Click any stage to access its dedicated 3D laboratory.</p>
             <div className="pipeline-list">
-              <div className="pipeline-step"><span>STAGE 01</span><div><strong>Audio ingestion & filtering</strong><small>Local capture · noise suppression · waveform</small></div><b>↘</b></div>
-              <div className="pipeline-step"><span>STAGE 02</span><div><strong>Spectral feature extraction</strong><small>MFCC concepts · pitch · jitter/shimmer proxies · pace</small></div><b>↘</b></div>
-              <div className="pipeline-step"><span>STAGE 03</span><div><strong>Temporal emotion modeling</strong><small>Wav2Vec2 + BiGRU reference architecture</small></div><b>↘</b></div>
-              <div className="pipeline-step"><span>STAGE 04</span><div><strong>Priority triage support</strong><small>0–100 demo score · human review required</small></div><b>✓</b></div>
+              <Link href="/pipeline/audio-ingestion" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 01</span><div><strong className="group-hover:text-cyan-300 transition-colors">Audio ingestion & filtering</strong><small>Local capture · noise suppression · waveform</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
+              <Link href="/pipeline/feature-extraction" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 02</span><div><strong className="group-hover:text-cyan-300 transition-colors">Spectral feature extraction</strong><small>MFCC concepts · pitch · jitter/shimmer proxies · pace</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
+              <Link href="/pipeline/emotion-modeling" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 03</span><div><strong className="group-hover:text-cyan-300 transition-colors">Temporal emotion modeling</strong><small>Wav2Vec2 + BiGRU reference architecture</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
+              <Link href="/pipeline/priority-triage" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 04</span><div><strong className="group-hover:text-cyan-300 transition-colors">Priority triage support</strong><small>0–100 demo score · human review required</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
             </div>
-            <p className="model-note"><Cpu size={14} /> Model architecture is a design reference; no pretrained SER weights are included in this frontend demo.</p>
+            <p className="model-note"><Cpu size={14} /> Each stage features a dedicated 3D model, interactive telemetry, and mathematical explanations.</p>
           </div>
           <div className="spectral-label"><span>ACOUSTIC FEATURE FIELD</span><strong>MFCC <i>·</i> F0 <i>·</i> JITTER <i>·</i> WPM</strong><small>SIMULATED SPECTRAL TUNNEL</small></div>
           <div className="section-coord">PIPELINE / 04 STAGES <span>CLIENT-SIDE ONLY</span></div>

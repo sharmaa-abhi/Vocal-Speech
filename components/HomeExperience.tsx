@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 import { Activity, ArrowDown, ArrowRight, Cpu, Fingerprint, LockKeyhole, Radio, ScanLine, ShieldCheck, Waves } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SceneCanvas from "@/components/SceneCanvas";
+import dynamic from "next/dynamic";
 import AudioSandbox from "@/components/AudioSandbox";
 import CalloutLines from "@/components/CalloutLines";
+
+const SceneCanvas = dynamic(() => import("@/components/SceneCanvas"), { ssr: false });
 import { clamp, EMOTION_LABELS, INITIAL_METRICS, type AcousticMetrics, type EmotionKey } from "@/lib/types";
 
 const emotionReadouts: Record<EmotionKey, { value: number; pitch: number; tremor: number; urgency: number; copy: string }> = {
@@ -113,7 +115,7 @@ export default function HomeExperience() {
           <div className="hero-copy">
             <motion.div className="eyebrow" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}><span className="pulse-dot" /> NATIONAL CYBERSECURITY VOCAL FORENSICS <span className="eyebrow-divider">{"//"}</span> REAL-TIME SER ENGINE</motion.div>
             <h1 id="hero-title" className="hero-title">
-              <span className="title-white cipher-word">REAL-TIME SPEECH</span>
+              <span className="title-white cipher-word">Real-Time Speech</span>
               <span className="title-blue cipher-word">EMOTION ANALYSIS</span>
               <span className="title-white title-sm cipher-word">FOR CYBERCRIME INVESTIGATION</span>
             </h1>
@@ -196,7 +198,7 @@ export default function HomeExperience() {
           <div className="section-coord">PRIVACY LAYER / ENABLED <span>MIC ACCESS REQUIRES PERMISSION</span></div>
         </section>
 
-        <footer className="site-footer"><span>VOCAL/FORENSICS <i>— CONCEPT PROTOTYPE</i></span><span><LockKeyhole size={12} /> CLIENT-SIDE AUDIO PROCESSING</span><Link href="/dashboard">OPEN TACTICAL HUD <ArrowRight size={13} /></Link></footer>
+        <footer className="site-footer"><span>VOCAL/FORENSICS <i>— CONCEPT PROTOTYPE</i></span><span><LockKeyhole size={12} /> CLIENT-SIDE AUDIO PROCESSING</span><Link href="/dashboard">Open Tactical HUD <ArrowRight size={13} /></Link></footer>
       </div>
 
       <div className="live-telemetry" aria-live="polite">

@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Activity, ArrowLeft, AudioLines, BellRing, ChevronRight, Clock3, FileAudio, Fingerprint, Headphones, LockKeyhole, Mic2, RadioTower, ShieldAlert, ShieldCheck, Signal, SlidersHorizontal, UserRound, Waves } from "lucide-react";
-import SceneCanvas from "@/components/SceneCanvas";
 import AudioSandbox from "@/components/AudioSandbox";
 import type { AcousticMetrics } from "@/lib/types";
 import { INITIAL_METRICS } from "@/lib/types";
+
+const SceneCanvas = dynamic(() => import("@/components/SceneCanvas"), { ssr: false });
 
 type CallItem = { id: string; kind: string; location: string; age: string; urgency: number; emotion: string; excerpt: string; accent: string; assigned: string };
 const initialQueue: CallItem[] = [

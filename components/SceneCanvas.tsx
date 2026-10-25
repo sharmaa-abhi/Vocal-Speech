@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, PointMaterial, Points } from "@react-three/drei";
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
@@ -155,6 +155,16 @@ function NeuralModel({ stage, energy, emotion, compact, pointerX = 0, pointerY =
 }
 
 export default function SceneCanvas({ stage, energy, emotion, compact = false, pointerX = 0, pointerY = 0 }: SceneCanvasProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div className={`scene-canvas ${compact ? "scene-canvas--compact" : ""}`} aria-hidden="true" />;
+  }
+
   return (
     <div className={`scene-canvas ${compact ? "scene-canvas--compact" : ""}`} aria-hidden="true">
       <Canvas dpr={[1, 1.6]} camera={{ position: [0, 0, 7.4], fov: 43 }} gl={{ antialias: true, alpha: true, preserveDrawingBuffer: true, powerPreference: "high-performance" }}>

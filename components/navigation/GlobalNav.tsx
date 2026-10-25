@@ -140,7 +140,7 @@ export default function GlobalNav() {
         <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-500/20 bg-black/60 font-['JetBrains_Mono',monospace] text-xs text-slate-300">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" />
           <span className="text-cyan-400 font-semibold">{activeRoute.num}</span>
-          <span className="text-slate-500">//</span>
+          <span className="text-slate-500">{"//"}</span>
           <span className="text-white tracking-wider uppercase">{activeRoute.label}</span>
           {activeRoute.badge && (
             <span className="ml-2 text-[10px] px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">

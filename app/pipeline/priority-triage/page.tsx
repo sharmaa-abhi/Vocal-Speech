@@ -359,7 +359,7 @@ export default function PriorityTriagePage() {
         {/* 4 Decision Support Architecture Principles */}
         <section className="my-14">
           <div className="flex items-center gap-2 font-['JetBrains_Mono',monospace] text-xs text-emerald-400 tracking-widest uppercase mb-2">
-            <span>// HUMAN-IN-THE-LOOP FRAMEWORK</span>
+            <span>{"//"} HUMAN-IN-THE-LOOP FRAMEWORK</span>
           </div>
           <h2 className="font-['Orbitron',sans-serif] text-xl sm:text-2xl font-bold tracking-wide text-white mb-6">
             ETHICAL TRIAGE <span className="text-emerald-400">PRINCIPLES</span>

@@ -182,7 +182,7 @@ export default function EmotionModelingPage() {
           <div className="lg:col-span-5 flex flex-col justify-between gap-5 border border-zinc-800 bg-zinc-950/70 rounded-xl p-5 sm:p-6 shadow-[0_0_25px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-zinc-800 font-['JetBrains_Mono',monospace] text-xs">
-                <span className="text-emerald-400 font-semibold">// 4 EMOTION CATEGORIES</span>
+                <span className="text-emerald-400 font-semibold">{"//"} 4 EMOTION CATEGORIES</span>
                 <span className="text-slate-400">SELECT TO ACTIVATE</span>
               </div>
 
@@ -268,7 +268,7 @@ export default function EmotionModelingPage() {
         {/* 4 Deep Dive Architecture Sections */}
         <section className="my-14">
           <div className="flex items-center gap-2 font-['JetBrains_Mono',monospace] text-xs text-emerald-400 tracking-widest uppercase mb-2">
-            <span>// DEEP DIVE ARCHITECTURE TAXONOMY</span>
+            <span>{"//"} DEEP DIVE ARCHITECTURE TAXONOMY</span>
           </div>
           <h2 className="font-['Orbitron',sans-serif] text-xl sm:text-2xl font-bold tracking-wide text-white mb-6">
             SEQUENCE MODELING <span className="text-emerald-400">FOUNDATIONS</span>

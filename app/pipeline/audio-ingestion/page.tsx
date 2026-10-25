@@ -453,7 +453,7 @@ export default function AudioIngestionPage() {
           <div className="lg:col-span-5 flex flex-col justify-between gap-5 border border-zinc-800 bg-zinc-950/70 rounded-xl p-5 sm:p-6 shadow-[0_0_25px_rgba(0,0,0,0.5)]">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-zinc-800 font-['JetBrains_Mono',monospace] text-xs">
-                <span className="text-cyan-400 font-semibold">// INGESTION WORKBENCH</span>
+                <span className="text-cyan-400 font-semibold">{"//"} INGESTION WORKBENCH</span>
                 <span className="text-slate-400">{sampleRate.toLocaleString()} HZ</span>
               </div>
 
@@ -576,7 +576,7 @@ export default function AudioIngestionPage() {
         {/* 4 Explanatory Technical Areas */}
         <section className="my-14">
           <div className="flex items-center gap-2 font-['JetBrains_Mono',monospace] text-xs text-cyan-400 tracking-widest uppercase mb-2">
-            <span>// ARCHITECTURAL SPECIFICATIONS</span>
+            <span>{"//"} ARCHITECTURAL SPECIFICATIONS</span>
           </div>
           <h2 className="font-['Orbitron',sans-serif] text-xl sm:text-2xl font-bold tracking-wide text-white mb-6">
             CORE INGESTION <span className="text-cyan-400">PRINCIPLES</span>

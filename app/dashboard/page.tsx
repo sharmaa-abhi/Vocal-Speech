@@ -62,16 +62,16 @@ export default function DashboardPage() {
           <div className="flex flex-wrap items-center gap-2 mt-3 font-['JetBrains_Mono',monospace] text-[11px]">
             <span className="text-slate-500">PIPELINE INSPECTION:</span>
             <Link href="/pipeline/audio-ingestion" className="px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-300 hover:border-cyan-400 hover:bg-cyan-950/40 transition-colors">
-              01 // INGESTION
+              01 {"//"} INGESTION
             </Link>
             <Link href="/pipeline/feature-extraction" className="px-2 py-0.5 rounded border border-blue-500/30 text-blue-300 hover:border-blue-400 hover:bg-blue-950/40 transition-colors">
-              02 // SPECTRAL FEATURES
+              02 {"//"} SPECTRAL FEATURES
             </Link>
             <Link href="/pipeline/emotion-modeling" className="px-2 py-0.5 rounded border border-emerald-500/30 text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition-colors">
-              03 // EMOTION MODELING
+              03 {"//"} EMOTION MODELING
             </Link>
             <Link href="/pipeline/priority-triage" className="px-2 py-0.5 rounded border border-teal-500/30 text-teal-300 hover:border-teal-400 hover:bg-teal-950/40 transition-colors">
-              04 // PRIORITY TRIAGE
+              04 {"//"} PRIORITY TRIAGE
             </Link>
           </div>
         </div>

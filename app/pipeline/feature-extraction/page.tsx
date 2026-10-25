@@ -9,7 +9,7 @@ import {
   Activity,
   Layers,
   Sliders,
-  Waveform,
+  AudioWaveform,
   Waves,
   ArrowRight,
   Info,
@@ -22,6 +22,7 @@ import {
 import GlobalNav from "@/components/navigation/GlobalNav";
 import PipelineTimeline from "@/components/navigation/PipelineTimeline";
 import StageSwitcher from "@/components/navigation/StageSwitcher";
+import { clamp } from "@/lib/types";
 
 // Dynamically load unique 3D Spectrogram Tunnel scene
 const SpectrogramTunnelScene = dynamic(

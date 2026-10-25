@@ -20,6 +20,8 @@ const initialQueue: CallItem[] = [
   { id: "VF-2029", kind: "GENERAL ENQUIRY", location: "NOIDA / HELPLINE", age: "03:26", urgency: 29, emotion: "LOW SIGNAL", excerpt: "“I am calling to check the status of a complaint.”", accent: "#64748B", assigned: "DESK 05" }
 ];
 
+import GlobalNav from "@/components/navigation/GlobalNav";
+
 export default function DashboardPage() {
   const [queue, setQueue] = useState(initialQueue);
   const [selectedId, setSelectedId] = useState("VF-2048");
@@ -46,15 +48,35 @@ export default function DashboardPage() {
   const currentEmotions = metrics.source === "idle" ? { fear: 64, anger: 22, distress: 94, nervousness: 79 } : metrics.emotions;
 
   return (
-    <main className="hud-page">
+    <main className="hud-page pt-[86px]">
+      <GlobalNav />
       <div className="hud-backdrop" aria-hidden="true"><div className="hud-grid" /><div className="hud-glow" /></div>
-      <div className="hud-topbar">
-        <Link className="brand-mark" href="/"><span className="brand-icon"><Activity size={18} /></span><span>VOCAL<span className="brand-soft">/FORENSICS</span><small>CYBERCRIME DISPATCH SYSTEM</small></span></Link>
-        <div className="hud-breadcrumb"><span>02 {"//"}</span> LIVE OFFICER TACTICAL HUD</div>
-        <div className="hud-top-actions"><span className="hud-clock"><span className="status-dot status-dot--live" /> {clock}</span><Link className="nav-switch" href="/"><span>01 {"//"}</span> 3D STORYTELLING <ArrowLeft size={14} /></Link></div>
-      </div>
 
-      <section className="hud-titlebar"><div><div className="section-index green-index">DISPATCH / TRIAGE OPERATIONS</div><h1>VOICE SIGNAL <em>COMMAND.</em></h1><p>Local audio telemetry and illustrative priority queue for human-led cybercrime response.</p></div><div className="hud-security"><ShieldCheck size={16} /><span>LOCAL PROCESSING</span><i>·</i><span>HUMAN REVIEW REQUIRED</span></div></section>
+      <section className="hud-titlebar">
+        <div>
+          <div className="section-index green-index">DISPATCH / TRIAGE OPERATIONS</div>
+          <h1>VOICE SIGNAL <em>COMMAND.</em></h1>
+          <p>Local audio telemetry and illustrative priority queue for human-led cybercrime response.</p>
+
+          {/* Quick Pipeline Showcase Switcher Links */}
+          <div className="flex flex-wrap items-center gap-2 mt-3 font-['JetBrains_Mono',monospace] text-[11px]">
+            <span className="text-slate-500">PIPELINE INSPECTION:</span>
+            <Link href="/pipeline/audio-ingestion" className="px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-300 hover:border-cyan-400 hover:bg-cyan-950/40 transition-colors">
+              01 // INGESTION
+            </Link>
+            <Link href="/pipeline/feature-extraction" className="px-2 py-0.5 rounded border border-blue-500/30 text-blue-300 hover:border-blue-400 hover:bg-blue-950/40 transition-colors">
+              02 // SPECTRAL FEATURES
+            </Link>
+            <Link href="/pipeline/emotion-modeling" className="px-2 py-0.5 rounded border border-emerald-500/30 text-emerald-300 hover:border-emerald-400 hover:bg-emerald-950/40 transition-colors">
+              03 // EMOTION MODELING
+            </Link>
+            <Link href="/pipeline/priority-triage" className="px-2 py-0.5 rounded border border-teal-500/30 text-teal-300 hover:border-teal-400 hover:bg-teal-950/40 transition-colors">
+              04 // PRIORITY TRIAGE
+            </Link>
+          </div>
+        </div>
+        <div className="hud-security"><ShieldCheck size={16} /><span>LOCAL PROCESSING</span><i>·</i><span>HUMAN REVIEW REQUIRED</span></div>
+      </section>
 
       <div className="hud-layout">
         <aside className="hud-panel queue-panel">

@@ -61,6 +61,9 @@ export default function DashboardPage() {
           {/* Quick Pipeline Showcase Switcher Links */}
           <div className="flex flex-wrap items-center gap-2 mt-3 font-['JetBrains_Mono',monospace] text-[11px]">
             <span className="text-slate-500">PIPELINE INSPECTION:</span>
+            <Link href="/pipeline" className="px-2 py-0.5 rounded border border-cyan-400 bg-cyan-950/50 text-cyan-200 hover:border-cyan-300 hover:bg-cyan-900/60 transition-colors font-bold">
+              00 {"//"} WORKFLOW OVERVIEW
+            </Link>
             <Link href="/pipeline/audio-ingestion" className="px-2 py-0.5 rounded border border-cyan-500/30 text-cyan-300 hover:border-cyan-400 hover:bg-cyan-950/40 transition-colors">
               01 {"//"} INGESTION
             </Link>

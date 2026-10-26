@@ -28,12 +28,13 @@ export default function StageSwitcher({ currentStage }: StageSwitcherProps) {
         </Link>
       ) : (
         <Link
-          href="/"
+          href="/pipeline"
           className="flex items-center gap-1.5 px-2.5 py-1 text-slate-300 hover:text-cyan-300 hover:bg-cyan-950/40 rounded-full transition-all"
-          title="Return to Home"
+          title="Return to Pipeline Workflow Blueprint"
         >
-          <Home className="w-3.5 h-3.5 text-cyan-400" />
-          <span className="hidden sm:inline">HOME</span>
+          <ArrowLeft className="w-3.5 h-3.5 text-cyan-400" />
+          <span className="hidden sm:inline">WORKFLOW</span>
+          <span className="sm:hidden">FLOW</span>
         </Link>
       )}
 

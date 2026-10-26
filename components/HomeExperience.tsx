@@ -118,7 +118,7 @@ export default function HomeExperience() {
             </h1>
             <p className="hero-subtitle">When milliseconds matter, <span>listen beyond words.</span> Analyze live or recorded voice signals to help officers identify potential distress and prioritize critical cybercrime calls.</p>
             <div className="hero-actions">
-              <Link className="text-action" href="/pipeline/audio-ingestion">EXPLORE 4-STAGE 3D PIPELINE <ArrowRight size={17} /></Link>
+              <Link className="text-action" href="/pipeline">EXPLORE 4-STAGE PIPELINE WORKFLOW <ArrowRight size={17} /></Link>
               <button className="quiet-link" onClick={activateSandbox} type="button">LIVE VOICE SANDBOX <ArrowDown size={14} /></button>
             </div>
             <div className="hero-footline"><span><Waves size={15} /> ACOUSTIC SIGNALS, NOT JUST WORDS</span><span className="green-text">● PRIVACY-FIRST · LOCAL PROCESSING</span></div>
@@ -146,8 +146,9 @@ export default function HomeExperience() {
           <div className="section-copy section-copy--right">
             <div className="section-index green-index">02 <span>{"//"}</span> THE 4-STAGE SER PIPELINE</div>
             <h2 id="pipeline-title"><span className="cipher-word">WE FORMAT THE VOICE.</span><br /><em className="cipher-word">THEN READ THE SIGNAL.</em></h2>
-            <p className="pipeline-intro">A client-side acoustic pipeline surfaces voice features for review—not a black-box verdict. Click any stage to access its dedicated 3D laboratory.</p>
+            <p className="pipeline-intro">A client-side acoustic pipeline surfaces voice features for review—not a black-box verdict. Click any stage to access its dedicated 3D laboratory, or inspect the end-to-end workflow.</p>
             <div className="pipeline-list">
+              <Link href="/pipeline" className="pipeline-step hover:border-cyan-400 group transition-all border-cyan-500/40 bg-cyan-950/20"><span>BLUEPRINT</span><div><strong className="group-hover:text-cyan-300 transition-colors">End-to-end pipeline workflow</strong><small>Data flow diagram · live simulation · math specs</small></div><b className="group-hover:translate-x-1 transition-transform">→</b></Link>
               <Link href="/pipeline/audio-ingestion" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 01</span><div><strong className="group-hover:text-cyan-300 transition-colors">Audio ingestion & filtering</strong><small>Local capture · noise suppression · waveform</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
               <Link href="/pipeline/feature-extraction" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 02</span><div><strong className="group-hover:text-cyan-300 transition-colors">Spectral feature extraction</strong><small>MFCC concepts · pitch · jitter/shimmer proxies · pace</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>
               <Link href="/pipeline/emotion-modeling" className="pipeline-step hover:border-cyan-400 group transition-all"><span>STAGE 03</span><div><strong className="group-hover:text-cyan-300 transition-colors">Temporal emotion modeling</strong><small>Wav2Vec2 + BiGRU reference architecture</small></div><b className="group-hover:translate-x-1 transition-transform">↗</b></Link>

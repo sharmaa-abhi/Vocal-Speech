@@ -40,6 +40,15 @@ export const NAV_ROUTES: NavRoute[] = [
   },
   {
     num: "02",
+    label: "PIPELINE WORKFLOW",
+    title: "End-to-End Workflow Architecture",
+    description: "Complete architectural blueprint, DSP transformations, neural SER & triage data flow",
+    href: "/pipeline",
+    icon: Layers,
+    badge: "WORKFLOW"
+  },
+  {
+    num: "03",
     label: "AUDIO INGESTION",
     title: "Stage 01: Ingestion & Filtering",
     description: "Browser audio capture, local DSP decoding, waveform inspection & bandpass filter",
@@ -48,7 +57,7 @@ export const NAV_ROUTES: NavRoute[] = [
     badge: "STAGE 01"
   },
   {
-    num: "03",
+    num: "04",
     label: "FEATURE EXTRACTION",
     title: "Stage 02: Spectral Features",
     description: "13-band MFCC envelope, F0 pitch tracking, jitter/shimmer proxies & speech pace",
@@ -57,7 +66,7 @@ export const NAV_ROUTES: NavRoute[] = [
     badge: "STAGE 02"
   },
   {
-    num: "04",
+    num: "05",
     label: "EMOTION MODELING",
     title: "Stage 03: Temporal Modeling",
     description: "Wav2Vec2 + BiGRU sequence architecture & 4 indicative emotion vectors",
@@ -66,7 +75,7 @@ export const NAV_ROUTES: NavRoute[] = [
     badge: "STAGE 03"
   },
   {
-    num: "05",
+    num: "06",
     label: "PRIORITY TRIAGE",
     title: "Stage 04: Decision Support",
     description: "3D holographic radar, 5 simulated priority calls & assistive supervisor queues",
@@ -75,7 +84,7 @@ export const NAV_ROUTES: NavRoute[] = [
     badge: "STAGE 04"
   },
   {
-    num: "06",
+    num: "07",
     label: "OFFICER HUD",
     title: "Live Officer Tactical HUD",
     description: "Real-time cybercrime dispatch desk, telemetry stream & incident actions",
@@ -109,9 +118,10 @@ export default function GlobalNav() {
     };
   }, [isOpen, handleKeyDown]);
 
-  const activeRoute = NAV_ROUTES.find((r) =>
-    r.href === "/" ? pathname === "/" : pathname?.startsWith(r.href)
-  ) ?? NAV_ROUTES[0];
+  const activeRoute =
+    NAV_ROUTES.find((r) => pathname === r.href) ??
+    NAV_ROUTES.find((r) => r.href !== "/" && r.href !== "/pipeline" && pathname?.startsWith(r.href)) ??
+    NAV_ROUTES[0];
 
   return (
     <>
@@ -232,6 +242,8 @@ export default function GlobalNav() {
                   const isActive =
                     route.href === "/"
                       ? pathname === "/"
+                      : route.href === "/pipeline"
+                      ? pathname === "/pipeline"
                       : pathname?.startsWith(route.href);
 
                   return (

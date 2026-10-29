@@ -252,3 +252,8 @@ vocal-forensics-frontend/
 ## 10. License
 
 This project is open-source and available under the [MIT License](LICENSE).
+### Known CI Issue
+
+The [Deno GitHub Actions job](https://github.com/sharmaa-abhi/Vocal-Speech/actions/runs/40877715944/job/123460736576) currently fails during the **Run linter** step. Deno reports 90 lint problems, including unused imports/state in `app/pipeline/audio-ingestion/page.tsx` and deprecated `window` usage flagged by `no-window`. The test step is skipped because the linter exits with code 1.
+
+The expected remediation is to remove or use the unused values, replace `window` with `globalThis`, and rerun the repository's configured Deno lint command.
